@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.MainActivity">
+
+    <TextView
+        android:id="@+id/textViewData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_data"
+        android:textSize="20sp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintEnd_toEndOf="@+id/buttonGetData"
+        app:layout_constraintStart_toStartOf="@+id/buttonGetData"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonGetData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:backgroundTint="@color/grey"
+        android:text="@string/get_data"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewData" />
+
+    <EditText
+        android:id="@+id/editTextPutData"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="80dp"
+        android:hint="@string/put_data_here"
+        app:layout_constraintEnd_toEndOf="@+id/buttonGetData"
+        app:layout_constraintStart_toStartOf="@+id/buttonGetData"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGetData" />
+
+    <Button
+        android:id="@+id/buttonSaveData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:backgroundTint="@color/grey"
+        android:text="@string/save_data"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPutData"
+        app:layout_constraintStart_toStartOf="@+id/editTextPutData"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPutData" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
