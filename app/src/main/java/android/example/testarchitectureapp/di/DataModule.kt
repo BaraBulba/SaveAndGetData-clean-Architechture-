@@ -1,22 +1,23 @@
 package android.example.testarchitectureapp.di
 
+import android.content.Context
 import android.example.cleanarchitect.domain.repository.UserRepository
 import android.example.data.repository.UserRepositoryImplementation
 import android.example.data.storage.UserStorage
 import android.example.data.storage.sharedprefs.SharedPrefUserStorage
-import org.koin.dsl.module
+import dagger.Module
+import dagger.Provides
 
-val dataModule = module {
+@Module
+class DataModule {
 
-    // Стореджи и репозитории, чаще всего сингл
-
-    single<UserStorage>{
-        SharedPrefUserStorage(context = get())
+    @Provides
+    fun provideUserStorage(context: Context): UserStorage{
+        return SharedPrefUserStorage(context = context)
     }
-
-    single<UserRepository>{
-        UserRepositoryImplementation(userStorage = get())
+    @Provides
+    fun provideUserRepository(userStorage: UserStorage): UserRepository{
+        return UserRepositoryImplementation(userStorage = userStorage)
     }
-
 
 }

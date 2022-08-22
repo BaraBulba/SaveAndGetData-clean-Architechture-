@@ -1,19 +1,22 @@
 package android.example.testarchitectureapp.di
 
+import android.example.cleanarchitect.domain.repository.UserRepository
 import android.example.cleanarchitect.domain.usecase.GetDataUseCase
 import android.example.cleanarchitect.domain.usecase.SaveDataUseCase
-import org.koin.dsl.module
+import dagger.Module
+import dagger.Provides
 
-val domainModule = module {
 
-    // Юз кейсы, чаще всего фектори
+@Module
+class DomainModule {
 
-    factory<GetDataUseCase> {
-        GetDataUseCase(userRepository = get())
+    @Provides
+    fun provideGetDataUseCase(userRepository: UserRepository): GetDataUseCase{
+        return GetDataUseCase(userRepository = userRepository)
     }
-
-    factory<SaveDataUseCase> {
-        SaveDataUseCase(userRepository = get())
+    @Provides
+    fun provideSaveDataUseCase(userRepository: UserRepository): SaveDataUseCase{
+        return SaveDataUseCase(userRepository = userRepository)
     }
 
 }
